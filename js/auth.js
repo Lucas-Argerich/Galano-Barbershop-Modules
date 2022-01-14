@@ -3,7 +3,7 @@ import { fetchData } from "./fetch.js"
 
 const auth = getAuth();
 
-const register = (email, password) => {
+export const register = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
@@ -17,7 +17,7 @@ const register = (email, password) => {
         });
 }
 
-const logIn = (email, password) => {
+export const logIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
@@ -32,12 +32,10 @@ const logIn = (email, password) => {
         });
 }
 
-const logOut = () => {
+export const logOut = () => {
     signOut(auth).then(() => {
         // Sign-out successful.
     }).catch((error) => {
         // An error happened.
     });
 }
-
-logIn("admin@admin.com", "admin1234")
